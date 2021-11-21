@@ -1,12 +1,16 @@
 import React from 'react';
+import Menu from './Menu';
+import Tools from './Tools';
 import PaintArea from './PaintArea';
 import './App.css';
 
 function App() {
 
 	return (
-		<div className="container-fluid bg-success">
-		<PaintArea width={400} height={400} />
+		<div>
+			<Menu />
+			<Tools />
+			<PaintArea />
 		</div>
 	);
 }

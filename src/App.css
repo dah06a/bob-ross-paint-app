@@ -1,3 +1,7 @@
 .App {
   text-align: center;
 }
+
+.paint-font {
+  font-family: 'Finger Paint', cursive;
+}
