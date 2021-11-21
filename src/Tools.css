@@ -1,0 +1,12 @@
+.currentTool {
+    margin: auto;
+    width: 20vmin;
+    height: 20vmin;
+    border: 1px solid black;
+    border-radius: 5%;
+}
+
+.colorPicker {
+    width: 20vmin !important;
+    height: 20vmin !important;
+}

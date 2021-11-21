@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import './PaintArea.css';
 
-export default function PaintArea() {
+export default function PaintArea({ brushColor, brushSize }) {
 
     const paintAreaContainer = useRef();
   	const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -32,9 +32,9 @@ export default function PaintArea() {
     const drawing = (e, ctx) => {
         if (brush === 'down') {
             ctx.beginPath();
-            ctx.lineWidth = 10;
+            ctx.lineWidth = brushSize;
+            ctx.strokeStyle = brushColor;
             ctx.lineCap = 'round';
-            ctx.strokeStyle = 'black';
 
             ctx.moveTo(brushCoordinates[0], brushCoordinates[1]);
             ctx.lineTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
