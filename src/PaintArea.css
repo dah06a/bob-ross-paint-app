@@ -1,16 +1,14 @@
 .paintArea {
     min-height: 90vh;
-    background-color: red;
-}
-
-.paintRow {
-    height: 100%;
-    background-color: green;
+    position: relative;
 }
 
 .canvas {
-    background-color: lightblue;
     border: 1px solid grey;
-    display: block;
-    margin: auto;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin:auto;
 }

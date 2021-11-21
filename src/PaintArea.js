@@ -3,17 +3,17 @@ import './PaintArea.css';
 
 export default function PaintArea() {
 
-    const targetRef = useRef();
-  	const [dimensions, setDimensions] = useState({ width:0, height: 0 });
+    const paintAreaContainer = useRef();
+  	const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
 	useLayoutEffect(() => {
-		if (targetRef.current) {
+		if (paintAreaContainer.current) {
 			setDimensions({
-				width: Math.floor(targetRef.current.offsetWidth * 0.9),
-				height: Math.floor(targetRef.current.offsetHeight * 0.90)
+				width: Math.floor(paintAreaContainer.current.offsetWidth * 0.98),
+				height: Math.floor(paintAreaContainer.current.offsetHeight * 0.95)
 			});
 		}
-	}, []);
+	}, [paintAreaContainer]);
 
     const [brush, setBrush] = useState('up');
     const [brushCoordinates, setBrushCoordinates] = useState([]);
@@ -45,20 +45,18 @@ export default function PaintArea() {
     }
 
     return (
-        <div className="container-fluid paintArea" ref={targetRef}>
-            <div className="row">
-                <div className="col bg-primary">
-                    <canvas
-                        className="canvas"
-                        width={dimensions.width}
-                        height={dimensions.height}
-                        ref={canvasRef}
-                        onMouseMove={(e) => drawing(e, ctx)}
-                        onMouseDown={(e) => brushDown(e)}
-                        onMouseUp={() => setBrush('up')}
-                    ></canvas>
-                </div>
-            </div>
+        <div className="paintArea" ref={paintAreaContainer}>
+            <canvas
+                className="canvas"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapsedMenu.show"
+                width={dimensions.width}
+                height={dimensions.height}
+                ref={canvasRef}
+                onMouseMove={(e) => drawing(e, ctx)}
+                onMouseDown={(e) => brushDown(e)}
+                onMouseUp={() => setBrush('up')}
+            ></canvas>
         </div>
     );
 }
