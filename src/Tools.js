@@ -27,14 +27,15 @@ function Tools({ currentColor, changeColor, currentSize, changeSize }) {
                     </div>
                 </div>
 
-                <div className="row mt-5 mb-2">
+                <div className="row mt-5">
                     <div className="col">
                         <h4>Select Size</h4>
                     </div>
                 </div>
 
                 <div className="row h-25 align-items-center">
-                    <div className="col">
+
+                    <div className="col p-0">
                         <div style={{
                                 margin: 'auto',
                                 width: currentSize,
@@ -45,18 +46,40 @@ function Tools({ currentColor, changeColor, currentSize, changeSize }) {
                             }}
                         />
                     </div>
+
                     <div className="col p-2">
-                        <p>Brush Size: {currentSize}</p>
-                        <input
-                            type='range'
-                            className="form-range"
-                            style={{ width: '80%' }}
-                            value={currentSize.toString()}
-                            min='1'
-                            max='100'
-                            step='1'
-                            onChange={(e) => changeSize(Number(e.target.value))}
-                        />
+                        <div className="row">
+
+                            <div className="col-6 offset-1">
+                                <p className="mt-2">Brush Size: </p>
+                            </div>
+
+                            <div className="col-3 p-0">
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    style={{ alignSelf: 'center' }}
+                                    value={currentSize}
+                                    onChange={(e) => e.target.value <=100 && e.target.value > 0 && changeSize(Number(e.target.value))}
+                                />
+                            </div>
+                        </div>
+
+                        <div className="row">
+                            <div className="col">
+                                <input
+                                    type='range'
+                                    className="form-range"
+                                    style={{ width: '78%', margin: 'auto' }}
+                                    value={currentSize.toString()}
+                                    min='1'
+                                    max='100'
+                                    step='1'
+                                    onChange={(e) => changeSize(Number(e.target.value))}
+                                />
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
