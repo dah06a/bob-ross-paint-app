@@ -2,7 +2,7 @@ import React from 'react';
 import { HexColorPicker } from 'react-colorful';
 import './Tools.css';
 
-function Tools({ currentColor, changeColor, currentSize, changeSize }) {
+function Tools({ currentColor, changeColor, currentSize, changeSize, eraseMode, changeErase }) {
     return (
         <div className="offcanvas offcanvas-end" tabIndex="-1" id="toolsPanel">
             <div className="offcanvas-header">
@@ -12,7 +12,22 @@ function Tools({ currentColor, changeColor, currentSize, changeSize }) {
 
             <div className="container text-center offcanvas-body">
 
-                <div className="row mb-2">
+                <div className="row mb-4">
+                    <div className="col">
+                        <h4>Select Mode</h4>
+                    </div>
+                </div>
+
+                <div className="row mb-4">
+                    <div className="col">
+                        <button className={eraseMode ? 'btn btn-outline-success w-75' : 'btn btn-success w-75'} onClick={() => changeErase(false)}>Paint</button>
+                    </div>
+                    <div className="col">
+                        <button className={eraseMode ? 'btn btn-danger w-75' : 'btn btn-outline-danger w-75'} onClick={() => changeErase(true)}>Erase</button>
+                    </div>
+                </div>
+
+                <div className="row mb-4">
                     <div className="col">
                         <h4>Select Color</h4>
                     </div>
@@ -20,21 +35,20 @@ function Tools({ currentColor, changeColor, currentSize, changeSize }) {
 
                 <div className="row align-items-center">
                     <div className="col">
-                        <div className="currentTool" style={{ backgroundColor: currentColor }} />
+                        <div className="currentTool" style={{ backgroundColor: eraseMode ? 'white' : currentColor }} />
                     </div>
                     <div className="col">
-                        <HexColorPicker className="colorPicker" color={currentColor} onChange={(color) => changeColor(color)} />
+                        <HexColorPicker className="colorPicker m-auto" color={currentColor} onChange={(color) => changeColor(color)} />
                     </div>
                 </div>
 
-                <div className="row mt-5">
+                <div className="row mt-4">
                     <div className="col">
                         <h4>Select Size</h4>
                     </div>
                 </div>
 
                 <div className="row h-25 align-items-center">
-
                     <div className="col p-0">
                         <div style={{
                                 margin: 'auto',
@@ -42,14 +56,13 @@ function Tools({ currentColor, changeColor, currentSize, changeSize }) {
                                 height: currentSize,
                                 border: '1px solid black',
                                 borderRadius: '50%',
-                                backgroundColor: currentColor
+                                backgroundColor: eraseMode ? 'white' : currentColor
                             }}
                         />
                     </div>
 
                     <div className="col p-2">
                         <div className="row">
-
                             <div className="col-6 offset-1">
                                 <p className="mt-2">Brush Size: </p>
                             </div>

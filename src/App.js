@@ -9,12 +9,24 @@ function App() {
 
 	const [brushColor, setBrushColor] = useState('black');
 	const [brushSize, setBrushSize] = useState(5);
+	const [eraseMode, setEraseMode] = useState(false);
 
 	return (
 		<>
 			<Menu />
-			<Tools currentColor={brushColor} changeColor={(color) => setBrushColor(color)} currentSize={brushSize} changeSize={(size) => setBrushSize(size)} />
-			<PaintArea brushColor={brushColor} brushSize={brushSize} />
+			<Tools
+				currentColor={brushColor}
+				changeColor={(color) => setBrushColor(color)}
+				currentSize={brushSize}
+				changeSize={(size) => setBrushSize(size)}
+				eraseMode={eraseMode}
+				changeErase={(bool) => setEraseMode(bool)}
+			/>
+			<PaintArea
+				brushColor={brushColor}
+				brushSize={brushSize}
+				eraseMode={eraseMode}
+			/>
 			<Footer />
 		</>
 	);

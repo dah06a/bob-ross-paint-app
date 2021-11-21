@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import './PaintArea.css';
 
-export default function PaintArea({ brushColor, brushSize }) {
+export default function PaintArea({ brushColor, brushSize, eraseMode }) {
 
     const paintAreaContainer = useRef();
   	const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -35,7 +35,7 @@ export default function PaintArea({ brushColor, brushSize }) {
             ctx.lineWidth = brushSize;
             ctx.strokeStyle = brushColor;
             ctx.lineCap = 'round';
-
+            ctx.globalCompositeOperation = eraseMode ? 'destination-out' : 'source-over';
             ctx.moveTo(brushCoordinates[0], brushCoordinates[1]);
             ctx.lineTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
             ctx.stroke();
