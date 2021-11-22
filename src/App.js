@@ -7,9 +7,13 @@ import './App.css';
 
 function App() {
 
+	// 4 - 411
+	const getRandomRoss = () => Math.floor(Math.random() * 407 + 4);
+
 	const [brushColor, setBrushColor] = useState('black');
 	const [brushSize, setBrushSize] = useState(5);
 	const [eraseMode, setEraseMode] = useState(false);
+	const [randomRossNum, setRandomRossNum] = useState(getRandomRoss());
 
 	return (
 		<>
@@ -26,6 +30,7 @@ function App() {
 				brushColor={brushColor}
 				brushSize={brushSize}
 				eraseMode={eraseMode}
+				randomRossNum={randomRossNum}
 			/>
 			<Footer />
 		</>

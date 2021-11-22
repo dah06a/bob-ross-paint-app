@@ -1,10 +1,14 @@
 import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import './PaintArea.css';
 
-export default function PaintArea({ brushColor, brushSize, eraseMode }) {
+export default function PaintArea({ brushColor, brushSize, eraseMode, randomRossNum }) {
 
     const paintAreaContainer = useRef();
   	const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
+    const rossBackgroundImage = new Image();
+    rossBackgroundImage.src = `https://raw.githubusercontent.com/jwilber/Bob_Ross_Paintings/master/data/paintings/painting${randomRossNum}.png`;
+
 
 	useLayoutEffect(() => {
 		if (paintAreaContainer.current) {
@@ -17,12 +21,20 @@ export default function PaintArea({ brushColor, brushSize, eraseMode }) {
 
     const [brush, setBrush] = useState('up');
     const [brushCoordinates, setBrushCoordinates] = useState([]);
-    const [ctx, setContext] = useState(null);
+    const [ctx, setCtx] = useState(null);
     const canvasRef = useRef();
 
+
     useEffect(() => {
-        setContext(canvasRef.current.getContext('2d'));
-    }, []);
+        console.log('USEEFFECT');
+        setCtx(canvasRef.current.getContext('2d'));
+        if (ctx !== null) {
+            console.log('Made it!')
+            ctx.globalAlpha = 0.5;
+            ctx.drawImage(rossBackgroundImage, 0, 0, dimensions.width, dimensions.height);
+            console.log('Was drawn?')
+        }
+    }, [ctx]);
 
     const brushDown = (e) => {
         setBrush('down');
@@ -31,6 +43,7 @@ export default function PaintArea({ brushColor, brushSize, eraseMode }) {
 
     const drawing = (e, ctx) => {
         if (brush === 'down') {
+            ctx.globalAlpha = 1;
             ctx.beginPath();
             ctx.lineWidth = brushSize;
             ctx.strokeStyle = brushColor;
@@ -39,7 +52,6 @@ export default function PaintArea({ brushColor, brushSize, eraseMode }) {
             ctx.moveTo(brushCoordinates[0], brushCoordinates[1]);
             ctx.lineTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
             ctx.stroke();
-
             setBrushCoordinates([e.nativeEvent.offsetX, e.nativeEvent.offsetY]);
         }
     }
