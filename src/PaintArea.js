@@ -1,14 +1,15 @@
 import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import './PaintArea.css';
 
-export default function PaintArea({ brushColor, brushSize, eraseMode, randomRossNum }) {
+export default function PaintArea({ brushColor, brushSize, eraseMode, backgroundUrl }) {
+
+  	const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+    const [brush, setBrush] = useState('up');
+    const [brushCoordinates, setBrushCoordinates] = useState([]);
+    const [ctx, setCtx] = useState(null);
 
     const paintAreaContainer = useRef();
-  	const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-
-    const rossBackgroundImage = new Image();
-    rossBackgroundImage.src = `https://raw.githubusercontent.com/jwilber/Bob_Ross_Paintings/master/data/paintings/painting${randomRossNum}.png`;
-
+    const canvasRef = useRef();
 
 	useLayoutEffect(() => {
 		if (paintAreaContainer.current) {
@@ -19,29 +20,16 @@ export default function PaintArea({ brushColor, brushSize, eraseMode, randomRoss
 		}
 	}, [paintAreaContainer]);
 
-    const [brush, setBrush] = useState('up');
-    const [brushCoordinates, setBrushCoordinates] = useState([]);
-    const [ctx, setCtx] = useState(null);
-    const canvasRef = useRef();
-
-
     useEffect(() => {
-        console.log('USEEFFECT');
         setCtx(canvasRef.current.getContext('2d'));
-        if (ctx !== null) {
-            console.log('Made it!')
-            ctx.globalAlpha = 0.5;
-            ctx.drawImage(rossBackgroundImage, 0, 0, dimensions.width, dimensions.height);
-            console.log('Was drawn?')
-        }
-    }, [ctx]);
+    }, []);
 
     const brushDown = (e) => {
         setBrush('down');
         setBrushCoordinates([e.nativeEvent.offsetX, e.nativeEvent.offsetY]);
     }
 
-    const drawing = (e, ctx) => {
+    const drawing = (e) => {
         if (brush === 'down') {
             ctx.globalAlpha = 1;
             ctx.beginPath();
@@ -58,6 +46,7 @@ export default function PaintArea({ brushColor, brushSize, eraseMode, randomRoss
 
     return (
         <div className="paintArea" ref={paintAreaContainer}>
+            <img src={backgroundUrl} className="background" width={dimensions.width} height={dimensions.height} />
             <canvas
                 className="canvas"
                 data-bs-toggle="collapse"
@@ -65,7 +54,7 @@ export default function PaintArea({ brushColor, brushSize, eraseMode, randomRoss
                 width={dimensions.width}
                 height={dimensions.height}
                 ref={canvasRef}
-                onMouseMove={(e) => drawing(e, ctx)}
+                onMouseMove={(e) => drawing(e)}
                 onMouseDown={(e) => brushDown(e)}
                 onMouseUp={() => setBrush('up')}
             ></canvas>

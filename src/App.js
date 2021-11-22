@@ -7,17 +7,23 @@ import './App.css';
 
 function App() {
 
-	// 4 - 411
-	const getRandomRoss = () => Math.floor(Math.random() * 407 + 4);
+	const randomRossNum = Math.floor(Math.random() * 407 + 4);
 
 	const [brushColor, setBrushColor] = useState('black');
 	const [brushSize, setBrushSize] = useState(5);
 	const [eraseMode, setEraseMode] = useState(false);
-	const [randomRossNum, setRandomRossNum] = useState(getRandomRoss());
+	const [backgroundUrl, setBackgroundUrl] = useState(`https://raw.githubusercontent.com/jwilber/Bob_Ross_Paintings/master/data/paintings/painting${randomRossNum}.png`);
+
+	const changeBackground = () => {
+		const newRandomRossNum = Math.floor(Math.random() * 407 + 4);
+		setBackgroundUrl(`https://raw.githubusercontent.com/jwilber/Bob_Ross_Paintings/master/data/paintings/painting${newRandomRossNum}.png`);
+	}
 
 	return (
 		<>
-			<Menu />
+			<Menu
+				changeBackground={() => changeBackground()}
+			/>
 			<Tools
 				currentColor={brushColor}
 				changeColor={(color) => setBrushColor(color)}
@@ -30,7 +36,7 @@ function App() {
 				brushColor={brushColor}
 				brushSize={brushSize}
 				eraseMode={eraseMode}
-				randomRossNum={randomRossNum}
+				backgroundUrl = {backgroundUrl}
 			/>
 			<Footer />
 		</>
