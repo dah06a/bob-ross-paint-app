@@ -44,9 +44,14 @@ export default function PaintArea({ brushColor, brushSize, eraseMode, background
         }
     }
 
+    const backgroundImage = backgroundUrl
+        ? <img src={backgroundUrl} alt='Random Bob Ross Painting' className="background" width={dimensions.width} height={dimensions.height} />
+        : null
+    ;
+
     return (
         <div className="paintArea" ref={paintAreaContainer}>
-            <img src={backgroundUrl} className="background" width={dimensions.width} height={dimensions.height} />
+            {backgroundImage}
             <canvas
                 className="canvas"
                 data-bs-toggle="collapse"

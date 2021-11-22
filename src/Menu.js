@@ -9,15 +9,18 @@ function Menu({ changeBackground }) {
     return (
         <div className="container-fluid bg-light menu">
             <div className="row collapse align-items-center text-center" id="collapsedMenu">
-                <div className="col p-4">
+                <div className="col-3 p-4">
                     <h5 >The Bob Ross Painting Project</h5>
                     <p className="text-muted">Developed by David Henry</p>
                 </div>
                 <div className="col">
-                    <button className="btn btn-warning w-75" onClick={() => changeBackground()}>New Background</button>
+                    <button className="btn btn-success w-75" onClick={() => changeBackground(false)}>New Background</button>
                 </div>
                 <div className="col">
-                    <button className="btn btn-danger w-75">Share</button>
+                    <button className="btn btn-danger w-75" onClick={() => changeBackground(true)}>No Background</button>
+                </div>
+                <div className="col">
+                    <button className="btn btn-warning w-75">Share</button>
                 </div>
                 <div className="col">
                     <button className="btn btn-primary w-75">Save</button>
