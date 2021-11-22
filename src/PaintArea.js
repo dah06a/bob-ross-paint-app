@@ -61,8 +61,11 @@ export default function PaintArea({ brushColor, brushSize, eraseMode, background
                 height={dimensions.height}
                 ref={canvasRef}
                 onMouseMove={(e) => drawing(e)}
+                onTouchMove={(e) => console.log(e)}
                 onMouseDown={(e) => brushDown(e)}
+                onTouchStart={(e) => brushDown(e)}
                 onMouseUp={() => setBrush('up')}
+                onTouchEnd={() => setBrush('up')}
             ></canvas>
         </div>
     );

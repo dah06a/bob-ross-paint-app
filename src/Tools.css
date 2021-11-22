@@ -1,12 +1,23 @@
 .currentTool {
     margin: auto;
-    width: 20vmin;
-    height: 20vmin;
+    width: 25vmin;
+    height: 25vmin;
     border: 1px solid black;
     border-radius: 5%;
 }
 
 .colorPicker {
-    width: 20vmin !important;
-    height: 20vmin !important;
+    width: 25vmin !important;
+    height: 25vmin !important;
+}
+
+@media (max-width: 576px) {
+    .colorPicker {
+        width: 40vmin !important;
+        height: 40vmin !important;
+    }
+    .currentTool {
+        width: 40vmin !important;
+        height: 40vmin !important;
+    }
 }
