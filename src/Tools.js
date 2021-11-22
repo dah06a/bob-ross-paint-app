@@ -5,29 +5,29 @@ import './Tools.css';
 function Tools({ currentColor, changeColor, currentSize, changeSize, eraseMode, changeErase }) {
     return (
         <div className="offcanvas offcanvas-end" tabIndex="-1" id="toolsPanel">
+
             <div className="offcanvas-header">
                 <h3 className="offcanvas-title">Brush Tools</h3>
                 <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" ></button>
             </div>
 
             <div className="container text-center offcanvas-body">
-
-                <div className="row mb-4">
+                <div className="row">
                     <div className="col">
                         <h4>Select Mode</h4>
                     </div>
                 </div>
 
-                <div className="row mb-4">
+                <div className="row">
                     <div className="col">
-                        <button className={eraseMode ? 'btn btn-outline-success w-75' : 'btn btn-success w-75'} onClick={() => changeErase(false)}>Paint</button>
+                        <button className={eraseMode ? 'btn btn-outline-success w-75' : 'btn btn-success w-75'} onClick={() => changeErase(false)}>Paint Mode</button>
                     </div>
                     <div className="col">
-                        <button className={eraseMode ? 'btn btn-danger w-75' : 'btn btn-outline-danger w-75'} onClick={() => changeErase(true)}>Erase</button>
+                        <button className={eraseMode ? 'btn btn-danger w-75' : 'btn btn-outline-danger w-75'} onClick={() => changeErase(true)}>Erase Mode</button>
                     </div>
                 </div>
 
-                <div className="row mb-4">
+                <div className="row mt-5">
                     <div className="col">
                         <h4>Select Color</h4>
                     </div>
@@ -42,13 +42,13 @@ function Tools({ currentColor, changeColor, currentSize, changeSize, eraseMode, 
                     </div>
                 </div>
 
-                <div className="row mt-4">
+                <div className="row mt-5">
                     <div className="col">
                         <h4>Select Size</h4>
                     </div>
                 </div>
 
-                <div className="row h-25 align-items-center">
+                <div className="row align-items-center">
                     <div className="col p-0">
                         <div style={{
                                 margin: 'auto',
@@ -64,7 +64,7 @@ function Tools({ currentColor, changeColor, currentSize, changeSize, eraseMode, 
                     <div className="col p-2">
                         <div className="row">
                             <div className="col-6 offset-1">
-                                <p className="mt-2">Brush Size: </p>
+                                <p className="mt-1">Brush Size: </p>
                             </div>
 
                             <div className="col-3 p-0">
@@ -92,13 +92,10 @@ function Tools({ currentColor, changeColor, currentSize, changeSize, eraseMode, 
                                 />
                             </div>
                         </div>
-
                     </div>
                 </div>
-
             </div>
-
-    </div>
+        </div>
     );
 }
 

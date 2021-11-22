@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import './PaintArea.css';
 
-export default function PaintArea({ brushColor, brushSize, eraseMode, backgroundUrl }) {
+export default function PaintArea({ brushColor, brushSize, eraseMode, backgroundUrl, changeDrawing }) {
 
   	const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
     const [brush, setBrush] = useState('up');
@@ -41,6 +41,7 @@ export default function PaintArea({ brushColor, brushSize, eraseMode, background
             ctx.lineTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
             ctx.stroke();
             setBrushCoordinates([e.nativeEvent.offsetX, e.nativeEvent.offsetY]);
+            changeDrawing(canvasRef.current.toDataURL('image/png'))
         }
     }
 

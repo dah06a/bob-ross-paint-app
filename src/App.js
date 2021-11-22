@@ -12,6 +12,7 @@ function App() {
 	const [brushSize, setBrushSize] = useState(5);
 	const [eraseMode, setEraseMode] = useState(false);
 	const [backgroundUrl, setBackgroundUrl] = useState(`https://raw.githubusercontent.com/jwilber/Bob_Ross_Paintings/master/data/paintings/painting${randomRossNum}.png`);
+	const [currentDrawing, setCurrentDrawing] = useState(null);
 
 	const changeBackground = (deleteBackground = false) => {
 		if (deleteBackground) setBackgroundUrl(null);
@@ -21,10 +22,16 @@ function App() {
 		}
 	}
 
+	const saveCanvas = () => {
+        const w = window.open('about:blank', 'Drawing From Bob Ross Painting Project');
+        w.document.write("<img src='"+currentDrawing+"' alt='Drawing From Bob Ross Painting' />");
+    }
+
 	return (
 		<>
 			<Menu
 				changeBackground={(deleteBackground) => changeBackground(deleteBackground)}
+				saveCanvas={() => saveCanvas()}
 			/>
 			<Tools
 				currentColor={brushColor}
@@ -38,7 +45,8 @@ function App() {
 				brushColor={brushColor}
 				brushSize={brushSize}
 				eraseMode={eraseMode}
-				backgroundUrl = {backgroundUrl}
+				backgroundUrl={backgroundUrl}
+				changeDrawing={(drawing) => setCurrentDrawing(drawing)}
 			/>
 			<Footer />
 		</>
