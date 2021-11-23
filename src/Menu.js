@@ -20,6 +20,10 @@ function Menu({ changeBackground, saveCanvas }) {
                 </div>
 
                 <div className="col-sm">
+                    <button className="btn btn-outline-warning w-75" data-bs-toggle="modal" data-bs-target="#introductionModal">Welcome</button>
+                </div>
+
+                <div className="col-sm">
                     <button className="btn btn-outline-success w-75" onClick={() => changeBackground(false)}>New Background</button>
                 </div>
 

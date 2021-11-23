@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Introduction from './Introduction';
 import Menu from './Menu';
 import Tools from './Tools';
 import PaintArea from './PaintArea';
@@ -29,6 +30,7 @@ function App() {
 
 	return (
 		<>
+			<Introduction />
 			<Menu
 				changeBackground={(deleteBackground) => changeBackground(deleteBackground)}
 				saveCanvas={() => saveCanvas()}

@@ -1,13 +1,13 @@
 .currentTool {
     margin: auto;
-    width: 25vmin;
+    width: 100%;
     height: 25vmin;
     border: 1px solid black;
     border-radius: 5%;
 }
 
 .colorPicker {
-    width: 25vmin !important;
+    width: 100% !important;
     height: 25vmin !important;
 }
 

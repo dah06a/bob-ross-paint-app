@@ -60,7 +60,7 @@ function Tools({ currentColor, changeColor, currentSize, changeSize, eraseMode, 
                 </div>
 
                 {/* Size Options */}
-                <div className="row align-items-center">
+                <div className="row h-25 align-items-center">
                     {/* Size Display */}
                     <div className="col p-0">
                         <div style={{
