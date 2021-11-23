@@ -3,7 +3,7 @@ import './Footer.css';
 
 function Footer() {
     return (
-        <footer className="container-fluid bg-light footer">
+        <footer className="container-fluid bg-light footer d-none d-sm-block">
                 <div className="row text-center h-100 align-items-center">
                     <div className="col-6 m-auto">
                         <h2>Footer</h2>
