@@ -35,7 +35,7 @@ function Tools({ currentColor, changeColor, currentSize, changeSize, eraseMode, 
                 </div>
 
                 {/* Color Title */}
-                <div className="row mt-5">
+                <div className="row mt-4">
                     <div className="col">
                         <h4>Select Color</h4>
                     </div>
@@ -53,7 +53,7 @@ function Tools({ currentColor, changeColor, currentSize, changeSize, eraseMode, 
                 </div>
 
                 {/* Size Title */}
-                <div className="row mt-5">
+                <div className="row mt-4">
                     <div className="col">
                         <h4>Select Size</h4>
                     </div>

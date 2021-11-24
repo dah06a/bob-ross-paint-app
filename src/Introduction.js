@@ -70,7 +70,7 @@ function Introduction() {
                             <div className="row">
                                 <div className="col text-center">
                                     <video className="video" width="100%" autoPlay loop muted>
-                                        <source src={MenuVideo} type="video/mp4" />
+                                        <source src="https://github.com/dah06a/bob-ross-paint-app/blob/main/src/videos/paint-app-menu-demo.mp4?raw=true" type="video/mp4" />
                                         Sorry, your browser doesn't support embedded videos.
                                     </video>
                                 </div>
