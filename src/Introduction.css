@@ -1,0 +1,14 @@
+.modal {
+    overflow-y: initial !important;
+}
+
+.modal-body {
+    height: 70vh;
+    overflow-y: auto;
+}
+
+.portrait {
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px grey;
+}
