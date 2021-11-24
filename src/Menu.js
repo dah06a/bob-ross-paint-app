@@ -16,7 +16,17 @@ function Menu({ changeBackground, saveCanvas }) {
 
                 <div className="col-lg-4 p-4">
                     <h5 >The Bob Ross Painting Project</h5>
-                    <p className="text-muted">Developed by David Henry</p>
+                    <p className="text-muted">
+                        Developed by
+                        <a
+                            href="https://davidhenrydev.com/#/"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="text-primary"
+                            style={{ textDecoration: 'none' }}
+                            >{' '}David Henry
+                        </a>
+                    </p>
                 </div>
 
                 <div className="col-lg">
