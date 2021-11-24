@@ -14,5 +14,7 @@ The project menu will help you to create and save a masterpiece! Click the 'New 
 My name is David Henry and I developed this project during the November-2021 MintBean Hackathon! Thank you for spending some time exploring the project - I hope very much that you enjoyed it. This app was designed using the React.JS Library with hooks, along with Bootstrap 5.1 and the React-Colorful package. If you would like to see some of my other work, please be sure to checkout my portfolio or other links below!
 
 Portfolio:  https://davidhenrydev.com/#/
+
 LinkedIn: https://www.linkedin.com/feed/
+
 GitHub: https://github.com/dah06a
