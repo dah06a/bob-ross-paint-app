@@ -3,7 +3,7 @@
 }
 
 .modal-body {
-    height: 70vh;
+    height: 55vh;
     overflow-y: auto;
 }
 
@@ -16,4 +16,10 @@
 .video {
     box-shadow: 0 5px 5px grey;
     border-radius: 10px;
+}
+
+@media (min-width: 992px) {
+    .modal-body {
+        height: 70vh;
+    }
 }

@@ -1,5 +1,5 @@
 .paintArea {
-    min-height: 85vh;
+    min-height: 75vh;
     width: 95vw;
     margin: auto;
     margin-top: 1%;
@@ -26,4 +26,10 @@
     right: 0;
     margin:auto;
     cursor: crosshair;
+}
+
+@media (min-width: 992px) {
+    .paintArea {
+        min-height: 85vh;
+    }
 }

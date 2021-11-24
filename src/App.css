@@ -1,7 +1,14 @@
 .App {
   text-align: center;
+  overflow: hidden;
 }
 
 .paint-font {
   font-family: 'Finger Paint', cursive;
+}
+
+@media (min-width: 992px) {
+  .App {
+    overflow: visible;
+  }
 }

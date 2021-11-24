@@ -14,10 +14,10 @@
 @media (max-width: 576px) {
     .colorPicker {
         width: 40vmin !important;
-        height: 40vmin !important;
+        height: 30vmin !important;
     }
     .currentTool {
         width: 40vmin !important;
-        height: 40vmin !important;
+        height: 30vmin !important;
     }
 }

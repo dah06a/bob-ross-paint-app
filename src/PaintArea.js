@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import './PaintArea.css';
 
 export default function PaintArea({ brushColor, brushSize, eraseMode, backgroundUrl, changeDrawing, showAlert, changeAlert }) {
@@ -30,9 +31,11 @@ export default function PaintArea({ brushColor, brushSize, eraseMode, background
     const brushDown = (e) => {
         setBrush('down');
         if (e.type === 'touchmove') {
+            disableBodyScroll(canvasRef);
             const r = canvasRef.current.getBoundingClientRect();
             setBrushCoordinates([e.touches[0].clientX - r.left, e.touches[0].clientY - r.top]);
         } else {
+            enableBodyScroll(canvasRef);
             setBrushCoordinates([e.nativeEvent.offsetX, e.nativeEvent.offsetY]);
         }
     }
@@ -46,10 +49,12 @@ export default function PaintArea({ brushColor, brushSize, eraseMode, background
             ctx.strokeStyle = brushColor;
             ctx.lineCap = 'round';
             ctx.globalCompositeOperation = eraseMode ? 'destination-out' : 'source-over';
+            enableBodyScroll(canvasRef);
             ctx.beginPath();
             ctx.moveTo(brushCoordinates[0], brushCoordinates[1]);
             // Brush movement based on screen touch
             if (e.type === 'touchmove') {
+                disableBodyScroll(canvasRef);
                 const r = canvasRef.current.getBoundingClientRect();
                 ctx.lineTo(e.touches[0].clientX - r.left, e.touches[0].clientY - r.top);
                 ctx.stroke();
@@ -79,12 +84,12 @@ export default function PaintArea({ brushColor, brushSize, eraseMode, background
 
     // Display alert when user clicks on the 'Erase All' tool
     const eraseAllAlert = showAlert
-        ? <div className="alert alert-danger w-50 m-auto" role="alert">
-            <h4 className="alert-heading text-center">Erase all?</h4>
+        ? <div className="alert alert-danger w-50 m-auto text-center" role="alert">
+            <h4 className="alert-heading">Erase all?</h4>
             <p>Are you sure you want to erase everything? You cannot undo this action.</p>
             <hr />
-            <button className="btn btn-secondary w-50" onClick={() => changeAlert(false)}>Cancel</button>
-            <button className="btn btn-danger w-50" onClick={() => eraseAll()}>Erase All</button>
+            <button className="btn btn-secondary w-50 text-nowrap" onClick={() => changeAlert(false)}>Cancel</button>
+            <button className="btn btn-danger w-50 text-nowrap" onClick={() => eraseAll()}>Erase</button>
         </div>
         : null;
 
@@ -96,11 +101,13 @@ export default function PaintArea({ brushColor, brushSize, eraseMode, background
                 width={dimensions.width}
                 height={dimensions.height}
                 ref={canvasRef}
+
                 onMouseMove={(e) => painting(e)}
-                onTouchMove={(e) => painting(e)}
                 onMouseDown={(e) => brushDown(e)}
-                onTouchStart={(e) => brushDown(e)}
                 onMouseUp={() => setBrush('up')}
+
+                onTouchMove={(e) => painting(e)}
+                onTouchStart={(e) => brushDown(e)}
                 onTouchEnd={() => setBrush('up')}
             ></canvas>
             {eraseAllAlert}
