@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/bob-ross-paint-app/static/css/main.86108bd1.chunk.css",
-    "main.js": "/bob-ross-paint-app/static/js/main.35cdeb22.chunk.js",
-    "main.js.map": "/bob-ross-paint-app/static/js/main.35cdeb22.chunk.js.map",
+    "main.js": "/bob-ross-paint-app/static/js/main.3da63588.chunk.js",
+    "main.js.map": "/bob-ross-paint-app/static/js/main.3da63588.chunk.js.map",
     "runtime-main.js": "/bob-ross-paint-app/static/js/runtime-main.e21911c3.js",
     "runtime-main.js.map": "/bob-ross-paint-app/static/js/runtime-main.e21911c3.js.map",
-    "static/js/2.95c2ea28.chunk.js": "/bob-ross-paint-app/static/js/2.95c2ea28.chunk.js",
-    "static/js/2.95c2ea28.chunk.js.map": "/bob-ross-paint-app/static/js/2.95c2ea28.chunk.js.map",
+    "static/js/2.63d1d987.chunk.js": "/bob-ross-paint-app/static/js/2.63d1d987.chunk.js",
+    "static/js/2.63d1d987.chunk.js.map": "/bob-ross-paint-app/static/js/2.63d1d987.chunk.js.map",
     "index.html": "/bob-ross-paint-app/index.html",
     "static/css/main.86108bd1.chunk.css.map": "/bob-ross-paint-app/static/css/main.86108bd1.chunk.css.map",
-    "static/js/2.95c2ea28.chunk.js.LICENSE.txt": "/bob-ross-paint-app/static/js/2.95c2ea28.chunk.js.LICENSE.txt",
+    "static/js/2.63d1d987.chunk.js.LICENSE.txt": "/bob-ross-paint-app/static/js/2.63d1d987.chunk.js.LICENSE.txt",
     "static/media/paint-app-menu-demo.e4434726.mp4": "/bob-ross-paint-app/static/media/paint-app-menu-demo.e4434726.mp4",
     "static/media/paint-app-tools-demo.7edf2965.mp4": "/bob-ross-paint-app/static/media/paint-app-tools-demo.7edf2965.mp4",
     "static/media/wall-portrait-zoom.52cd969a.JPG": "/bob-ross-paint-app/static/media/wall-portrait-zoom.52cd969a.JPG"
   },
   "entrypoints": [
     "static/js/runtime-main.e21911c3.js",
-    "static/js/2.95c2ea28.chunk.js",
+    "static/js/2.63d1d987.chunk.js",
     "static/css/main.86108bd1.chunk.css",
-    "static/js/main.35cdeb22.chunk.js"
+    "static/js/main.3da63588.chunk.js"
   ]
 }
