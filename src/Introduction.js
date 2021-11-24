@@ -47,7 +47,7 @@ function Introduction() {
 
                             <div className="row">
                                 <div className="col text-center">
-                                    <video width="80%" autoPlay loop muted>
+                                    <video className="video" width="80%" autoPlay loop muted>
                                         <source src={ToolsVideo} type="video/mp4" />
                                         Sorry, your browser doesn't support embedded videos.
                                     </video>
@@ -69,7 +69,7 @@ function Introduction() {
 
                             <div className="row">
                                 <div className="col text-center">
-                                    <video width="100%" autoPlay loop muted>
+                                    <video className="video" width="100%" autoPlay loop muted>
                                         <source src={MenuVideo} type="video/mp4" />
                                         Sorry, your browser doesn't support embedded videos.
                                     </video>
@@ -112,10 +112,10 @@ function Introduction() {
                         <div className="container">
                             <div className="row">
                                 <div className="col">
-                                    <a href="https://davidhenrydev.com/#/" role="button" target="_blank" rel="noreferrer" className="btn btn-primary w-100">Checkout Developer</a>
+                                    <a href="https://davidhenrydev.com/#/" role="button" target="_blank" rel="noreferrer" className="btn btn-primary w-100 text-nowrap">Checkout Developer</a>
                                 </div>
                                 <div className="col">
-                                    <button type="button" className="btn btn-success w-100" data-bs-dismiss="modal">Start Painting</button>
+                                    <button type="button" className="btn btn-success w-100 text-nowrap" data-bs-dismiss="modal">Start Painting</button>
                                 </div>
                             </div>
                         </div>

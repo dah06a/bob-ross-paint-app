@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import './PaintArea.css';
 
-export default function PaintArea({ brushColor, brushSize, eraseMode, backgroundUrl, changeDrawing }) {
+export default function PaintArea({ brushColor, brushSize, eraseMode, backgroundUrl, changeDrawing, showAlert, changeAlert }) {
 
     // State settings and refs
   	const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -15,8 +15,8 @@ export default function PaintArea({ brushColor, brushSize, eraseMode, background
 	useLayoutEffect(() => {
 		if (paintAreaContainer.current) {
 			setDimensions({
-				width: Math.floor(paintAreaContainer.current.offsetWidth * 0.98),
-				height: Math.floor(paintAreaContainer.current.offsetHeight * 0.95)
+				width: Math.floor(paintAreaContainer.current.offsetWidth * 0.99),
+				height: Math.floor(paintAreaContainer.current.offsetHeight * 0.98)
 			});
 		}
 	}, [paintAreaContainer]);
@@ -65,19 +65,34 @@ export default function PaintArea({ brushColor, brushSize, eraseMode, background
         }
     }
 
+    // Erase all of current painting and close the alert box
+    const eraseAll = () => {
+        ctx.clearRect(0, 0, dimensions.width, dimensions.height);
+        changeAlert(false);
+    }
+
     // Create background image based on user input
     const backgroundImage = backgroundUrl
         ? <img src={backgroundUrl} alt='Random Bob Ross Painting' className="background" width={dimensions.width} height={dimensions.height} />
         : null
     ;
 
+    // Display alert when user clicks on the 'Erase All' tool
+    const eraseAllAlert = showAlert
+        ? <div className="alert alert-danger w-50 m-auto" role="alert">
+            <h4 className="alert-heading text-center">Erase all?</h4>
+            <p>Are you sure you want to erase everything? You cannot undo this action.</p>
+            <hr />
+            <button className="btn btn-secondary w-50" onClick={() => changeAlert(false)}>Cancel</button>
+            <button className="btn btn-danger w-50" onClick={() => eraseAll()}>Erase All</button>
+        </div>
+        : null;
+
     return (
-        <div className="paintArea" ref={paintAreaContainer}>
+        <div className="paintArea" ref={paintAreaContainer} data-bs-toggle="collapse" data-bs-target="#collapsedMenu.show">
             {backgroundImage}
             <canvas
                 className="canvas"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapsedMenu.show"
                 width={dimensions.width}
                 height={dimensions.height}
                 ref={canvasRef}
@@ -88,6 +103,7 @@ export default function PaintArea({ brushColor, brushSize, eraseMode, background
                 onMouseUp={() => setBrush('up')}
                 onTouchEnd={() => setBrush('up')}
             ></canvas>
+            {eraseAllAlert}
         </div>
     );
 }

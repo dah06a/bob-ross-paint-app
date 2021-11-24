@@ -14,25 +14,25 @@ function Menu({ changeBackground, saveCanvas }) {
             {/* Collapsed Row Menu Content */}
             <div className="row collapse align-items-center text-center" id="collapsedMenu">
 
-                <div className="col-sm-3 p-4">
+                <div className="col-lg-4 p-4">
                     <h5 >The Bob Ross Painting Project</h5>
                     <p className="text-muted">Developed by David Henry</p>
                 </div>
 
-                <div className="col-sm">
-                    <button className="btn btn-outline-warning w-75" data-bs-toggle="modal" data-bs-target="#introductionModal">Welcome</button>
+                <div className="col-lg">
+                    <button className="btn btn-outline-warning text-nowrap my-2 menuBtn" data-bs-toggle="modal" data-bs-target="#introductionModal">Welcome</button>
                 </div>
 
-                <div className="col-sm">
-                    <button className="btn btn-outline-success w-75" onClick={() => changeBackground(false)}>New Background</button>
+                <div className="col-lg">
+                    <button className="btn btn-outline-success text-nowrap my-2 menuBtn" onClick={() => changeBackground(false)}>New Background</button>
                 </div>
 
-                <div className="col-sm">
-                    <button className="btn btn-outline-danger w-75" onClick={() => changeBackground(true)}>No Background</button>
+                <div className="col-lg">
+                    <button className="btn btn-outline-danger text-nowrap my-2 menuBtn" onClick={() => changeBackground(true)}>No Background</button>
                 </div>
 
-                <div className="col-sm">
-                    <button className="btn btn-outline-primary w-75" onClick={() => saveCanvas()}>Save/Share</button>
+                <div className="col-lg">
+                    <button className="btn btn-outline-primary text-nowrap my-2 menuBtn" onClick={() => saveCanvas()}>Save/Share</button>
                 </div>
             </div>
 

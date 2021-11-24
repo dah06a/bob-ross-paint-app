@@ -2,7 +2,7 @@ import React from 'react';
 import { HexColorPicker } from 'react-colorful';
 import './Tools.css';
 
-function Tools({ currentColor, changeColor, currentSize, changeSize, eraseMode, changeErase }) {
+function Tools({ currentColor, changeColor, currentSize, changeSize, eraseMode, changeErase, changeAlert }) {
 
     return (
         // Main Off-Canvas Tools Side Panel
@@ -103,6 +103,12 @@ function Tools({ currentColor, changeColor, currentSize, changeSize, eraseMode, 
                                     step='1'
                                     onChange={(e) => changeSize(Number(e.target.value))}
                                 />
+                            </div>
+                        </div>
+
+                        <div className="row mt-3">
+                            <div className="col text-center">
+                                <button className="btn btn-outline-dark w-75" data-bs-dismiss="offcanvas" onClick={() => changeAlert(true)}>Erase All</button>
                             </div>
                         </div>
                     </div>

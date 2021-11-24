@@ -1,6 +1,10 @@
 .paintArea {
-    min-height: 90vh;
+    min-height: 85vh;
+    width: 95vw;
+    margin: auto;
+    margin-top: 1%;
     position: relative;
+    box-shadow: 2px 5px 5px 5px grey;
 }
 
 .background {
@@ -10,7 +14,7 @@
     left: 0;
     right: 0;
     margin:auto;
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
 .canvas {

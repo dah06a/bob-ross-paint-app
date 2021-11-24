@@ -12,3 +12,8 @@
     border-radius: 10px;
     box-shadow: 0 5px 5px grey;
 }
+
+.video {
+    box-shadow: 0 5px 5px grey;
+    border-radius: 10px;
+}

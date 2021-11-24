@@ -1,3 +1,13 @@
 .menu {
     min-height: 10vh;
 }
+
+.menuBtn {
+    width: 50%;
+}
+
+@media (min-width: 992px) {
+    .menuBtn {
+        width: 100%;
+    }
+}

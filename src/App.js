@@ -14,6 +14,7 @@ function App() {
 	const [eraseMode, setEraseMode] = useState(false);
 	const [backgroundUrl, setBackgroundUrl] = useState(`https://raw.githubusercontent.com/jwilber/Bob_Ross_Paintings/master/data/paintings/painting${randomRossNum}.png`);
 	const [currentDrawing, setCurrentDrawing] = useState(null);
+	const [showAlert, setShowAlert] = useState(false);
 
 	const changeBackground = (deleteBackground = false) => {
 		if (deleteBackground) setBackgroundUrl(null);
@@ -21,6 +22,10 @@ function App() {
 			const newRandomRossNum = Math.floor(Math.random() * 407 + 4);
 			setBackgroundUrl(`https://raw.githubusercontent.com/jwilber/Bob_Ross_Paintings/master/data/paintings/painting${newRandomRossNum}.png`);
 		}
+	}
+
+	const changeAlert = (show) => {
+		setShowAlert(show);
 	}
 
 	const saveCanvas = () => {
@@ -42,6 +47,7 @@ function App() {
 				changeSize={(size) => setBrushSize(size)}
 				eraseMode={eraseMode}
 				changeErase={(bool) => setEraseMode(bool)}
+				changeAlert={(show) => setShowAlert(show)}
 			/>
 			<PaintArea
 				brushColor={brushColor}
@@ -49,6 +55,8 @@ function App() {
 				eraseMode={eraseMode}
 				backgroundUrl={backgroundUrl}
 				changeDrawing={(drawing) => setCurrentDrawing(drawing)}
+				showAlert={showAlert}
+				changeAlert={(show) => changeAlert(show)}
 			/>
 			<Footer />
 		</>
